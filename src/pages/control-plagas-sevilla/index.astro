@@ -1,8 +1,12 @@
 ---
+import { Image } from 'astro:assets';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Hero from '../../components/Hero.astro';
 import UrgentCTA from '../../components/UrgentCTA.astro';
+import WhatsAppCTA from '../../components/WhatsAppCTA.astro';
 import Icon from '../../components/icons/Icon.astro';
+import fotoTecnicoPlagas from '../../assets/fotos/tecnico-control-plagas-tratamiento-sevilla.jpg';
+import fotoTrampa from '../../assets/fotos/trampa-cucarachas-control-plagas-sevilla.jpg';
 
 const detalles = [
   {
@@ -45,6 +49,24 @@ const detalles = [
   />
 
   <section class="mx-auto max-w-4xl px-4 py-16 sm:px-6 lg:px-8">
+    <div class="mb-10 grid gap-6 sm:grid-cols-2">
+      <Image
+        src={fotoTecnicoPlagas}
+        alt="Técnico de MG Mantenimientos aplicando un tratamiento de control de plagas en un local de hostelería de Sevilla"
+        class="h-full w-full rounded-2xl object-cover shadow-sm"
+        widths={[480, 800]}
+        sizes="(max-width: 640px) 100vw, 400px"
+        loading="lazy"
+      />
+      <Image
+        src={fotoTrampa}
+        alt="Trampa de monitoreo de cucarachas utilizada en un tratamiento de desinsectación en Sevilla"
+        class="h-full w-full rounded-2xl object-cover shadow-sm"
+        widths={[480, 800]}
+        sizes="(max-width: 640px) 100vw, 400px"
+        loading="lazy"
+      />
+    </div>
     <div class="flex items-start gap-3 rounded-xl bg-white p-5 shadow-sm">
       <Icon name="shield" class="mt-0.5 h-6 w-6 shrink-0 text-accent" />
       <p class="text-sm font-medium text-ink/80">
@@ -72,11 +94,12 @@ const detalles = [
       <h2 class="font-display text-2xl font-bold sm:text-3xl">
         ¿Necesitas un tratamiento urgente?
       </h2>
-      <p class="mt-2 text-white/70">
+      <p class="mt-2 text-white/80">
         Atendemos avisos de plagas en Sevilla capital todos los días del año.
       </p>
-      <div class="mt-6 flex justify-center">
+      <div class="mt-6 flex flex-wrap justify-center gap-4">
         <UrgentCTA phone="plagas" />
+        <WhatsAppCTA phone="plagas" />
       </div>
     </div>
   </section>

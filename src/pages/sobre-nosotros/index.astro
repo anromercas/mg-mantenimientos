@@ -1,8 +1,11 @@
 ---
+import { Image } from 'astro:assets';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Icon from '../../components/icons/Icon.astro';
 import UrgentCTA from '../../components/UrgentCTA.astro';
 import { site } from '../../data/site';
+import fotoFlota from '../../assets/fotos/flota-furgonetas-mg-mantenimientos-sevilla.jpg';
+import fotoFurgoneta from '../../assets/fotos/furgoneta-desatascos-control-plagas-sevilla.jpg';
 ---
 
 <BaseLayout
@@ -47,6 +50,25 @@ import { site } from '../../data/site';
           </p>
         </div>
       </div>
+    </div>
+
+    <div class="mt-10 grid gap-6 sm:grid-cols-2">
+      <Image
+        src={fotoFurgoneta}
+        alt="Furgoneta rotulada de MG Mantenimientos con los teléfonos de desatascos y control de plagas en Sevilla"
+        class="h-full w-full rounded-2xl object-cover shadow-sm"
+        widths={[480, 800]}
+        sizes="(max-width: 640px) 100vw, 400px"
+        loading="lazy"
+      />
+      <Image
+        src={fotoFlota}
+        alt="Flota de vehículos de MG Mantenimientos, empresa de desatascos y control de plagas en Sevilla"
+        class="h-full max-h-96 w-full rounded-2xl object-cover shadow-sm"
+        widths={[480, 800]}
+        sizes="(max-width: 640px) 100vw, 400px"
+        loading="lazy"
+      />
     </div>
 
     <div class="mt-10 grid gap-4 sm:grid-cols-2">

@@ -4,6 +4,7 @@ import Hero from '../components/Hero.astro';
 import ServiceCard from '../components/ServiceCard.astro';
 import TestimonialCard from '../components/TestimonialCard.astro';
 import UrgentCTA from '../components/UrgentCTA.astro';
+import WhatsAppCTA from '../components/WhatsAppCTA.astro';
 import Icon from '../components/icons/Icon.astro';
 import { site } from '../data/site';
 ---
@@ -56,24 +57,68 @@ import { site } from '../data/site';
           href="/control-plagas-sevilla/"
         />
       </div>
+
+      <a
+        href="/servicios/#abono"
+        class="mt-10 flex flex-col items-start gap-3 rounded-2xl border-2 border-primary/20 bg-primary/5 p-6 transition hover:border-primary/40 sm:flex-row sm:items-center sm:justify-between"
+      >
+        <div>
+          <p class="font-display text-lg font-bold text-primary">
+            ¡Contrata nuestro pack Desatascos + Control de Plagas y ahorra!
+          </p>
+          <p class="mt-1 text-sm text-ink/70">
+            Mantenimiento anual con prevención y solución de problemas durante
+            todo el año.
+          </p>
+        </div>
+        <span class="inline-flex shrink-0 items-center gap-2 rounded-full bg-primary px-6 py-3 font-display text-sm font-bold text-white">
+          Abónate
+          <Icon name="arrow-right" class="h-4 w-4" />
+        </span>
+      </a>
     </div>
   </section>
 
-  <section class="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
-    <h2 class="font-display text-3xl font-bold text-primary sm:text-4xl">
-      Lo que dicen nuestros clientes
-    </h2>
-    <div class="mt-10 grid gap-6 md:grid-cols-2">
-      <TestimonialCard quote="Nos solucionaron un atasco complicado en pocas horas, con un trato muy profesional. Totalmente recomendable." />
-      <TestimonialCard quote="Vinieron rápido para un atasco importante y además nos asesoraron sobre mantenimiento y el seguro del hogar. Un servicio excelente." />
+  <section id="opiniones" class="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+    <div class="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
+      <div>
+        <h2 class="font-display text-3xl font-bold text-primary sm:text-4xl">
+          Lo que dicen nuestros clientes
+        </h2>
+        <div class="mt-3 flex items-center gap-2">
+          <span class="flex gap-0.5 text-amber-400">
+            {Array.from({ length: 5 }).map(() => <Icon name="star" class="h-5 w-5" />)}
+          </span>
+          <span class="font-display font-bold text-ink">
+            {site.valoracionGoogle.rating} / 5
+          </span>
+          <span class="text-sm text-ink/60">
+            · {site.valoracionGoogle.numReviews} reseñas en Google
+          </span>
+        </div>
+      </div>
+      <a
+        href={site.googleMapsUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex shrink-0 items-center gap-2 rounded-full bg-primary px-5 py-2.5 font-display text-sm font-bold text-white transition hover:bg-primary-dark"
+      >
+        Ver todas en Google Maps
+        <Icon name="arrow-right" class="h-4 w-4" />
+      </a>
     </div>
-    <a
-      href="/opiniones/"
-      class="mt-6 inline-flex items-center gap-2 font-display text-sm font-bold text-accent hover:underline"
+
+    <div
+      class="-mx-4 mt-10 flex snap-x snap-mandatory gap-6 overflow-x-auto px-4 pb-4 sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8"
     >
-      Ver todas las opiniones
-      <Icon name="arrow-right" class="h-4 w-4" />
-    </a>
+      {
+        site.resenas.map((r) => (
+          <div class="w-80 shrink-0 snap-start sm:w-96">
+            <TestimonialCard quote={r.texto} author={r.autor} />
+          </div>
+        ))
+      }
+    </div>
   </section>
 
   <section class="bg-primary py-16 text-white">
@@ -82,11 +127,14 @@ import { site } from '../data/site';
         <h2 class="font-display text-3xl font-bold sm:text-4xl">
           ¿Tienes una urgencia ahora mismo?
         </h2>
-        <p class="mt-2 text-white/70">
+        <p class="mt-2 text-white/80">
           Servicio 24 horas, los 365 días del año, en toda Sevilla capital.
         </p>
       </div>
-      <UrgentCTA />
+      <div class="flex flex-wrap gap-4">
+        <UrgentCTA />
+        <WhatsAppCTA />
+      </div>
     </div>
   </section>
 </BaseLayout>

@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ServiceCard from '../../components/ServiceCard.astro';
+import Icon from '../../components/icons/Icon.astro';
 import { site } from '../../data/site';
 ---
 
@@ -32,6 +33,41 @@ import { site } from '../../data/site';
         items={site.servicios.plagas}
         href="/control-plagas-sevilla/"
       />
+    </div>
+
+    <div
+      id="abono"
+      class="mt-16 overflow-hidden rounded-2xl bg-gradient-to-br from-primary to-primary-dark text-white"
+    >
+      <div class="grid gap-8 p-8 sm:p-10 lg:grid-cols-[1fr_auto] lg:items-center">
+        <div>
+          <p class="inline-flex items-center gap-2 rounded-full bg-white/15 px-4 py-1.5 text-xs font-bold uppercase tracking-wide">
+            <Icon name="shield" class="h-4 w-4" />
+            Pack Desatascos + Control de Plagas
+          </p>
+          <h2 class="mt-4 font-display text-3xl font-bold sm:text-4xl">
+            Abónate a nuestro mantenimiento anual y ahorra
+          </h2>
+          <p class="mt-4 max-w-2xl text-white/85">
+            ¿Te imaginas no tener que preocuparte jamás por el estado de las
+            tuberías de tu red? Con nuestro servicio de abono tienes contratado
+            un mantenimiento completo por parte de profesionales, que incluye
+            tanto la prevención como la solución de los problemas que puedan
+            surgir durante todo el año.
+          </p>
+          <p class="mt-3 font-display text-sm font-bold text-white/90">
+            "Nosotros mantenemos su bienestar, mientras usted ahorra en su
+            economía"
+          </p>
+        </div>
+        <a
+          href="/contacto/"
+          class="inline-flex items-center justify-center gap-2 rounded-full bg-dark px-8 py-4 font-display text-sm font-bold text-white shadow-lg shadow-black/20 transition hover:bg-black"
+        >
+          Abónate
+          <Icon name="arrow-right" class="h-4 w-4" />
+        </a>
+      </div>
     </div>
   </section>
 </BaseLayout>

@@ -1,0 +1,28 @@
+---
+import Icon from './icons/Icon.astro';
+import { site } from '../data/site';
+
+interface Props {
+  phone?: 'desatascos' | 'plagas';
+  label?: string;
+  class?: string;
+}
+
+const {
+  phone = 'desatascos',
+  label = 'WhatsApp',
+  class: className = '',
+} = Astro.props;
+
+const contacto = site.whatsapp[phone];
+---
+
+<a
+  href={`https://wa.me/${contacto.numero}`}
+  target="_blank"
+  rel="noopener noreferrer"
+  class={`inline-flex items-center justify-center gap-2 rounded-full bg-whatsapp px-6 py-3 font-display text-sm font-bold text-white shadow-lg shadow-whatsapp/30 transition hover:bg-whatsapp-dark ${className}`}
+>
+  <Icon name="whatsapp" class="h-5 w-5" />
+  {label}
+</a>

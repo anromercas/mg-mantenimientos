@@ -1,6 +1,7 @@
 ---
 import Icon from './icons/Icon.astro';
 import UrgentCTA from './UrgentCTA.astro';
+import WhatsAppCTA from './WhatsAppCTA.astro';
 import { site } from '../data/site';
 
 interface Props {
@@ -18,27 +19,28 @@ const {
 } = Astro.props;
 ---
 
-<section class="relative overflow-hidden bg-primary text-white">
+<section class="relative overflow-hidden bg-gradient-to-br from-primary to-primary-dark text-white">
   <div
-    class="pointer-events-none absolute -right-24 -top-24 h-96 w-96 rounded-full bg-accent/20 blur-3xl"
+    class="pointer-events-none absolute -right-24 -top-24 h-96 w-96 rounded-full bg-white/10 blur-3xl"
   >
   </div>
   <div class="relative mx-auto max-w-7xl px-4 py-20 sm:px-6 sm:py-28 lg:px-8">
-    <div class="flex items-center gap-2 text-sm font-semibold text-accent">
-      <Icon name="star" class="h-5 w-5" />
+    <div class="flex items-center gap-2 text-sm font-semibold text-white">
+      <Icon name="star" class="h-5 w-5 text-amber-300" />
       {site.valoracionGoogle.rating}★ en Google · {site.valoracionGoogle.numReviews} reseñas
     </div>
     <h1 class="mt-4 max-w-3xl font-display text-4xl font-bold leading-tight sm:text-5xl lg:text-6xl">
       {title}
     </h1>
-    <p class="mt-6 max-w-2xl text-lg text-white/80">
+    <p class="mt-6 max-w-2xl text-lg text-white/85">
       {subtitle}
     </p>
     <div class="mt-8 flex flex-wrap items-center gap-4">
       <UrgentCTA phone={phone} />
+      <WhatsAppCTA phone={phone} />
       <a
         href={secondaryCta.href}
-        class="inline-flex items-center gap-2 rounded-full border border-white/30 px-6 py-3 font-display text-sm font-bold text-white transition hover:bg-white/10"
+        class="inline-flex items-center gap-2 rounded-full border border-white/40 px-6 py-3 font-display text-sm font-bold text-white transition hover:bg-white/10"
       >
         {secondaryCta.label}
         <Icon name="arrow-right" class="h-4 w-4" />

@@ -1,0 +1,62 @@
+---
+import Icon from './icons/Icon.astro';
+import { site } from '../data/site';
+
+const contactos = [site.whatsapp.desatascos, site.whatsapp.plagas];
+---
+
+<div
+  id="wa-panel"
+  class="fixed bottom-40 right-4 z-50 hidden w-80 overflow-hidden rounded-2xl border border-black/10 bg-white shadow-2xl lg:bottom-24 lg:right-6"
+>
+  <div class="bg-whatsapp px-5 py-4 text-white">
+    <p class="font-display text-lg font-bold">Hola 👋</p>
+    <p class="mt-1 text-sm text-white/90">
+      Contacta con nosotros a través de WhatsApp. Te responderemos lo antes
+      posible.
+    </p>
+  </div>
+  <div class="divide-y divide-black/5">
+    {
+      contactos.map((c) => (
+        <a
+          href={`https://wa.me/${c.numero}`}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="flex items-center gap-3 px-5 py-4 transition hover:bg-bg"
+        >
+          <span class="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-whatsapp text-white">
+            <Icon name="whatsapp" class="h-6 w-6" />
+          </span>
+          <span>
+            <span class="block font-display text-sm font-bold text-ink">
+              {c.nombre}
+            </span>
+            <span class="block text-sm text-ink/60">{c.rol}</span>
+          </span>
+        </a>
+      ))
+    }
+  </div>
+</div>
+
+<button
+  id="wa-toggle"
+  type="button"
+  aria-label="Abrir chat de WhatsApp"
+  aria-expanded="false"
+  aria-controls="wa-panel"
+  class="fixed bottom-20 right-4 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-whatsapp text-white shadow-lg shadow-black/20 transition hover:bg-whatsapp-dark lg:bottom-6 lg:right-6"
+>
+  <Icon name="whatsapp" class="h-7 w-7" />
+</button>
+
+<script>
+  const waToggle = document.getElementById('wa-toggle');
+  const waPanel = document.getElementById('wa-panel');
+
+  waToggle?.addEventListener('click', () => {
+    const isHidden = waPanel?.classList.toggle('hidden');
+    waToggle.setAttribute('aria-expanded', String(!isHidden));
+  });
+</script>

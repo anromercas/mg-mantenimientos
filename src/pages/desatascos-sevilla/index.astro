@@ -1,8 +1,13 @@
 ---
+import { Image } from 'astro:assets';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Hero from '../../components/Hero.astro';
 import UrgentCTA from '../../components/UrgentCTA.astro';
+import WhatsAppCTA from '../../components/WhatsAppCTA.astro';
 import Icon from '../../components/icons/Icon.astro';
+import fotoTecnico from '../../assets/fotos/tecnico-desatasco-arqueta-sevilla.jpg';
+import fotoCamara from '../../assets/fotos/camara-inspeccion-360-tuberias.jpg';
+import fotoPistola from '../../assets/fotos/pistola-presion-desatascos-rothenberger.jpg';
 
 const detalles = [
   {
@@ -13,27 +18,27 @@ const detalles = [
   {
     titulo: 'Limpieza y desatasco de alcantarillado',
     texto:
-      'Limpiamos y desatascamos tramos de alcantarillado comunitario o particular con equipos de presión de agua, eliminando grasas, raíces y sedimentos acumulados.',
+      'Contamos con maquinaria de agua a alta presión de última generación, capaz de eliminar incluso los restos más adheridos a las paredes de la tubería. Limpiamos tuberías, alcantarillados, arquetas, bajantes y todo tipo de redes de saneamiento, tanto comunitarias como particulares.',
   },
   {
     titulo: 'Inspección con cámara de TV 360º',
     texto:
-      'Introducimos una cámara de inspección por el interior de la tubería para localizar exactamente dónde está la avería, sin necesidad de levantar suelos ni hacer obra. Grabamos el informe en vídeo para que quede constancia del estado real de la instalación.',
+      'Disponemos de potentes cámaras de inspección con sonda dirigida 360º que recorren toda la red de saneamiento y detectan cualquier anomalía —roturas, filtraciones o atascos— grabando y documentando el resultado en vídeo, sin necesidad de hacer aperturas para localizarla. Contamos además con una cámara estabilizadora para inspeccionar tuberías de pequeño diámetro.',
   },
   {
     titulo: 'Localización de arquetas ocultas',
     texto:
-      'Con detectores especializados localizamos arquetas tapadas por reformas u obras antiguas, un problema muy habitual en viviendas de Sevilla capital con más de 20 años.',
+      'Localizamos arquetas, roturas y anomalías en el saneamiento mediante ultrasonido, con bastones localizadores de última generación. Es la solución para arquetas tapadas por reformas u obras antiguas, un problema muy habitual en viviendas de Sevilla capital con más de 20 años.',
   },
   {
     titulo: 'Desatasco de tuberías de pequeño diámetro',
     texto:
-      'Trabajamos también en bajantes, desagües de cocina y baño, y tuberías de pequeño diámetro donde los atascos son más frecuentes por acumulación de grasas y objetos.',
+      'Trabajamos con pistolas de presión de hasta 8 bares —uno de los motores en seco más eficientes del mercado— y mangueras de agua de alta presión especializadas en desagües de pequeño diámetro: bajantes, fregaderos y desagües de cocina y baño, donde los atascos por grasas y objetos son más frecuentes.',
   },
   {
     titulo: 'Achique de agua',
     texto:
-      'Realizamos achique de agua en sótanos, garajes y locales inundados por roturas, lluvias intensas o fallos en el saneamiento, con equipos de bombeo de alto caudal.',
+      'Realizamos achique de agua en sótanos, garajes y locales inundados por roturas, lluvias intensas o fallos en el saneamiento. Disponemos de motores trituradores de aguas sucias y motores de aguas limpias, capaces de impulsar el agua hasta 6 metros de altura.',
   },
   {
     titulo: 'Mantenimiento anual de desatascos',
@@ -54,6 +59,14 @@ const detalles = [
   />
 
   <section class="mx-auto max-w-4xl px-4 py-16 sm:px-6 lg:px-8">
+    <Image
+      src={fotoTecnico}
+      alt="Técnico de MG Mantenimientos desatascando una arqueta en Sevilla"
+      class="mb-10 w-full rounded-2xl shadow-sm"
+      widths={[480, 800, 1240]}
+      sizes="(max-width: 896px) 100vw, 832px"
+      loading="lazy"
+    />
     <div class="space-y-10">
       {
         detalles.map((d) => (
@@ -68,15 +81,52 @@ const detalles = [
       }
     </div>
 
+    <h2 class="mt-14 font-display text-2xl font-bold text-primary">
+      Nuestra maquinaria
+    </h2>
+    <p class="mt-2 text-ink/70">
+      Trabajamos con equipos profesionales de última generación para resolver
+      cada avería sin obra y a la primera.
+    </p>
+    <div class="mt-6 grid gap-6 sm:grid-cols-2">
+      <figure>
+        <Image
+          src={fotoCamara}
+          alt="Cámara de inspección de tuberías 360º con grabación utilizada por MG Mantenimientos en Sevilla"
+          class="w-full rounded-2xl bg-white object-cover shadow-sm"
+          widths={[480, 800]}
+          sizes="(max-width: 640px) 100vw, 400px"
+          loading="lazy"
+        />
+        <figcaption class="mt-2 text-sm text-ink/60">
+          Cámara de inspección 360º con grabación
+        </figcaption>
+      </figure>
+      <figure>
+        <Image
+          src={fotoPistola}
+          alt="Pistola de presión profesional para desatascos de tuberías de pequeño diámetro en Sevilla"
+          class="w-full rounded-2xl bg-white object-cover shadow-sm"
+          widths={[480, 800]}
+          sizes="(max-width: 640px) 100vw, 400px"
+          loading="lazy"
+        />
+        <figcaption class="mt-2 text-sm text-ink/60">
+          Pistola de presión para tuberías de pequeño diámetro
+        </figcaption>
+      </figure>
+    </div>
+
     <div class="mt-14 rounded-2xl bg-primary p-8 text-center text-white sm:p-10">
       <h2 class="font-display text-2xl font-bold sm:text-3xl">
         ¿Tienes un atasco ahora mismo?
       </h2>
-      <p class="mt-2 text-white/70">
+      <p class="mt-2 text-white/80">
         Te atendemos en cualquier punto de Sevilla capital, las 24 horas del día.
       </p>
-      <div class="mt-6 flex justify-center">
+      <div class="mt-6 flex flex-wrap justify-center gap-4">
         <UrgentCTA />
+        <WhatsAppCTA />
       </div>
     </div>
   </section>

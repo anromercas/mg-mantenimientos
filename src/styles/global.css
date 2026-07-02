@@ -3,10 +3,14 @@
 @import '@fontsource-variable/manrope';
 
 @theme {
-  --color-primary: #14304d;
-  --color-primary-dark: #0d2036;
-  --color-accent: #e8871e;
-  --color-accent-dark: #c66e12;
+  --color-primary: #c8161d;
+  --color-primary-dark: #9e1015;
+  --color-primary-light: #ef5a5f;
+  --color-accent: #c8161d;
+  --color-accent-dark: #9e1015;
+  --color-dark: #1b1b1b;
+  --color-whatsapp: #25d366;
+  --color-whatsapp-dark: #1da851;
   --color-bg: #f7f8fa;
   --color-ink: #1e1e1e;
 

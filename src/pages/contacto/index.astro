@@ -47,6 +47,50 @@ import { site } from '../../data/site';
             </div>
           </li>
           <li class="flex items-start gap-3">
+            <Icon name="whatsapp" class="mt-0.5 h-6 w-6 shrink-0 text-whatsapp" />
+            <div>
+              <p class="font-display font-bold text-primary">
+                WhatsApp Desatascos — {site.whatsapp.desatascos.nombre}
+              </p>
+              <a
+                href={`https://wa.me/${site.whatsapp.desatascos.numero}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="text-ink/75 hover:text-whatsapp-dark"
+              >
+                Escríbenos por WhatsApp
+              </a>
+            </div>
+          </li>
+          <li class="flex items-start gap-3">
+            <Icon name="whatsapp" class="mt-0.5 h-6 w-6 shrink-0 text-whatsapp" />
+            <div>
+              <p class="font-display font-bold text-primary">
+                WhatsApp Control de Plagas — {site.whatsapp.plagas.nombre}
+              </p>
+              <a
+                href={`https://wa.me/${site.whatsapp.plagas.numero}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="text-ink/75 hover:text-whatsapp-dark"
+              >
+                Escríbenos por WhatsApp
+              </a>
+            </div>
+          </li>
+          <li class="flex items-start gap-3">
+            <Icon name="mail" class="mt-0.5 h-6 w-6 shrink-0 text-accent" />
+            <div>
+              <p class="font-display font-bold text-primary">Email</p>
+              <a href={`mailto:${site.emails.desatascos}`} class="block text-ink/75 hover:text-accent">
+                {site.emails.desatascos} (Desatascos)
+              </a>
+              <a href={`mailto:${site.emails.plagas}`} class="block text-ink/75 hover:text-accent">
+                {site.emails.plagas} (Control de plagas)
+              </a>
+            </div>
+          </li>
+          <li class="flex items-start gap-3">
             <Icon name="clock" class="mt-0.5 h-6 w-6 shrink-0 text-accent" />
             <div>
               <p class="font-display font-bold text-primary">Horario</p>
