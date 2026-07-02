@@ -1,0 +1,43 @@
+---
+import LegalLayout from '../../layouts/LegalLayout.astro';
+import { site } from '../../data/site';
+---
+
+<LegalLayout
+  title="Política de Cookies"
+  description="Política de cookies del sitio web de MG Mantenimientos."
+>
+  <p>
+    Este sitio web, titularidad de {site.nombre}, utiliza cookies propias y de
+    terceros para mejorar la experiencia de navegación y para el
+    funcionamiento de servicios como el mapa embebido de Google Maps.
+  </p>
+
+  <h2>¿Qué son las cookies?</h2>
+  <p>
+    Las cookies son pequeños archivos que se almacenan en el navegador del
+    usuario y permiten reconocer su dispositivo en visitas sucesivas.
+  </p>
+
+  <h2>Cookies utilizadas en este sitio</h2>
+  <ul>
+    <li>
+      <strong>Cookies técnicas:</strong> necesarias para el funcionamiento
+      básico del sitio web.
+    </li>
+    <li>
+      <strong>Cookies de terceros (Google Maps):</strong> se cargan al
+      mostrar el mapa embebido en la página de contacto, sujetas a la
+      política de privacidad de Google.
+    </li>
+  </ul>
+
+  <h2>Cómo gestionar las cookies</h2>
+  <p>
+    El usuario puede permitir, bloquear o eliminar las cookies instaladas en
+    su equipo mediante la configuración de las opciones del navegador que esté
+    utilizando.
+  </p>
+
+  <p class="text-sm text-ink/50">Última actualización: julio de 2026.</p>
+</LegalLayout>

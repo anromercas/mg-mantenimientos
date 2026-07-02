@@ -1,0 +1,92 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import ServiceCard from '../components/ServiceCard.astro';
+import TestimonialCard from '../components/TestimonialCard.astro';
+import UrgentCTA from '../components/UrgentCTA.astro';
+import Icon from '../components/icons/Icon.astro';
+import { site } from '../data/site';
+---
+
+<BaseLayout
+  title="Desatascos y Control de Plagas en Sevilla, 24h | MG Mantenimientos"
+  description="Desatascos urgentes y control de plagas en Sevilla, 24 horas los 365 días. Más de 25 años de experiencia, autorizados por la Junta de Andalucía. 4.6★ en Google."
+>
+  <Hero
+    title="Desatascos y Control de Plagas en Sevilla, 24 horas los 365 días del año"
+    subtitle="Más de 25 años resolviendo urgencias en Sevilla capital. Empresa autorizada por la Junta de Andalucía. Valorados con 4.6★ en Google por más de 60 clientes."
+  />
+
+  <section class="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+    <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+      {
+        site.diferenciadores.slice(0, 4).map((d) => (
+          <div class="flex items-start gap-3 rounded-xl bg-white p-5 shadow-sm">
+            <Icon name="shield" class="h-6 w-6 shrink-0 text-accent" />
+            <p class="text-sm font-medium text-ink/80">{d}</p>
+          </div>
+        ))
+      }
+    </div>
+  </section>
+
+  <section class="bg-white py-16">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="max-w-2xl">
+        <h2 class="font-display text-3xl font-bold text-primary sm:text-4xl">
+          Nuestros servicios
+        </h2>
+        <p class="mt-3 text-ink/70">
+          Dos especialidades, un mismo compromiso: rapidez, garantía y precio justo.
+        </p>
+      </div>
+      <div class="mt-10 grid gap-8 md:grid-cols-2">
+        <ServiceCard
+          icon="pipe"
+          title="Desatascos y saneamiento"
+          description="Desatascos urgentes con inspección por cámara 360º para localizar la avería sin necesidad de obra."
+          items={site.servicios.desatascos}
+          href="/desatascos-sevilla/"
+        />
+        <ServiceCard
+          icon="shield"
+          title="Control de plagas"
+          description="Desinsectación, desratización y tratamientos antitermitas con empresa autorizada por la Junta de Andalucía."
+          items={site.servicios.plagas}
+          href="/control-plagas-sevilla/"
+        />
+      </div>
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+    <h2 class="font-display text-3xl font-bold text-primary sm:text-4xl">
+      Lo que dicen nuestros clientes
+    </h2>
+    <div class="mt-10 grid gap-6 md:grid-cols-2">
+      <TestimonialCard quote="Nos solucionaron un atasco complicado en pocas horas, con un trato muy profesional. Totalmente recomendable." />
+      <TestimonialCard quote="Vinieron rápido para un atasco importante y además nos asesoraron sobre mantenimiento y el seguro del hogar. Un servicio excelente." />
+    </div>
+    <a
+      href="/opiniones/"
+      class="mt-6 inline-flex items-center gap-2 font-display text-sm font-bold text-accent hover:underline"
+    >
+      Ver todas las opiniones
+      <Icon name="arrow-right" class="h-4 w-4" />
+    </a>
+  </section>
+
+  <section class="bg-primary py-16 text-white">
+    <div class="mx-auto flex max-w-7xl flex-col items-start gap-6 px-4 sm:px-6 lg:flex-row lg:items-center lg:justify-between lg:px-8">
+      <div>
+        <h2 class="font-display text-3xl font-bold sm:text-4xl">
+          ¿Tienes una urgencia ahora mismo?
+        </h2>
+        <p class="mt-2 text-white/70">
+          Servicio 24 horas, los 365 días del año, en toda Sevilla capital.
+        </p>
+      </div>
+      <UrgentCTA />
+    </div>
+  </section>
+</BaseLayout>

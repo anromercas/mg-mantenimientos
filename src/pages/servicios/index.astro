@@ -1,0 +1,37 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ServiceCard from '../../components/ServiceCard.astro';
+import { site } from '../../data/site';
+---
+
+<BaseLayout
+  title="Servicios en Sevilla: Desatascos y Control de Plagas | MG Mantenimientos"
+  description="Conoce nuestros servicios en Sevilla: desatascos urgentes 24h con cámara 360º y control de plagas autorizado por la Junta de Andalucía."
+>
+  <section class="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+    <h1 class="font-display text-4xl font-bold text-primary sm:text-5xl">
+      Nuestros servicios en Sevilla
+    </h1>
+    <p class="mt-4 max-w-2xl text-lg text-ink/70">
+      Dos líneas de negocio especializadas, disponibles 24 horas los 365 días
+      del año en toda Sevilla capital.
+    </p>
+
+    <div class="mt-12 grid gap-8 md:grid-cols-2">
+      <ServiceCard
+        icon="pipe"
+        title="Desatascos y saneamiento"
+        description="Desatascos urgentes con inspección por cámara 360º para localizar la avería sin necesidad de obra."
+        items={site.servicios.desatascos}
+        href="/desatascos-sevilla/"
+      />
+      <ServiceCard
+        icon="shield"
+        title="Control de plagas"
+        description="Desinsectación, desratización y tratamientos antitermitas con empresa autorizada por la Junta de Andalucía."
+        items={site.servicios.plagas}
+        href="/control-plagas-sevilla/"
+      />
+    </div>
+  </section>
+</BaseLayout>

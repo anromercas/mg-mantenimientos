@@ -1,0 +1,81 @@
+---
+---
+
+<form
+  name="contacto"
+  method="POST"
+  data-netlify="true"
+  netlify-honeypot="bot-field"
+  action="/contacto/gracias/"
+  class="grid gap-5"
+>
+  <input type="hidden" name="form-name" value="contacto" />
+  <p class="hidden">
+    <label>
+      No rellenar si eres humano: <input name="bot-field" />
+    </label>
+  </p>
+
+  <div class="grid gap-1.5">
+    <label for="nombre" class="text-sm font-semibold text-primary">Nombre</label>
+    <input
+      id="nombre"
+      name="nombre"
+      type="text"
+      required
+      class="rounded-lg border border-black/10 bg-white px-4 py-2.5 text-ink outline-none focus:border-accent focus:ring-2 focus:ring-accent/20"
+    />
+  </div>
+
+  <div class="grid gap-1.5">
+    <label for="telefono" class="text-sm font-semibold text-primary">Teléfono</label>
+    <input
+      id="telefono"
+      name="telefono"
+      type="tel"
+      required
+      class="rounded-lg border border-black/10 bg-white px-4 py-2.5 text-ink outline-none focus:border-accent focus:ring-2 focus:ring-accent/20"
+    />
+  </div>
+
+  <div class="grid gap-1.5">
+    <label for="email" class="text-sm font-semibold text-primary">Email</label>
+    <input
+      id="email"
+      name="email"
+      type="email"
+      class="rounded-lg border border-black/10 bg-white px-4 py-2.5 text-ink outline-none focus:border-accent focus:ring-2 focus:ring-accent/20"
+    />
+  </div>
+
+  <div class="grid gap-1.5">
+    <label for="servicio" class="text-sm font-semibold text-primary">Servicio</label>
+    <select
+      id="servicio"
+      name="servicio"
+      class="rounded-lg border border-black/10 bg-white px-4 py-2.5 text-ink outline-none focus:border-accent focus:ring-2 focus:ring-accent/20"
+    >
+      <option value="desatascos">Desatascos y saneamiento</option>
+      <option value="plagas">Control de plagas</option>
+      <option value="otro">Otro / no lo sé</option>
+    </select>
+  </div>
+
+  <div class="grid gap-1.5">
+    <label for="mensaje" class="text-sm font-semibold text-primary">Mensaje</label>
+    <textarea
+      id="mensaje"
+      name="mensaje"
+      rows="4"
+      required
+      class="resize-none rounded-lg border border-black/10 bg-white px-4 py-2.5 text-ink outline-none focus:border-accent focus:ring-2 focus:ring-accent/20"
+    ></textarea>
+  </div>
+
+  <button
+    type="submit"
+    class="mt-2 inline-flex items-center justify-center gap-2 rounded-full bg-accent px-6 py-3 font-display text-sm font-bold text-white transition hover:bg-accent-dark"
+  >
+    Enviar mensaje
+  </button>
+</form>

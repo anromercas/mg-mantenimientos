@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#14304D" />
+  <circle cx="1020" cy="120" r="220" fill="#E8871E" opacity="0.15" />
+  <g transform="translate(90,220)" fill="none" stroke="#E8871E" stroke-width="10" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M0 90h140v-60a35 35 0 0 1 35-35h35a35 35 0 0 1 35 35v190a35 35 0 0 0 35 35h70" />
+  </g>
+  <text x="90" y="470" font-family="Arial, sans-serif" font-size="56" font-weight="700" fill="#FFFFFF">MG Mantenimientos</text>
+  <text x="90" y="520" font-family="Arial, sans-serif" font-size="30" fill="#E8871E">Desatascos y Control de Plagas · Sevilla · 24h</text>
+</svg>

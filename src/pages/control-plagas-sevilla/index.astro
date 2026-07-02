@@ -1,0 +1,83 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Hero from '../../components/Hero.astro';
+import UrgentCTA from '../../components/UrgentCTA.astro';
+import Icon from '../../components/icons/Icon.astro';
+
+const detalles = [
+  {
+    titulo: 'Desinsectación',
+    texto:
+      'Eliminamos cucarachas, chinches, hormigas y otros insectos con tratamientos autorizados por la Junta de Andalucía, adaptados a viviendas, comunidades y locales comerciales.',
+  },
+  {
+    titulo: 'Desratización',
+    texto:
+      'Controlamos la presencia de roedores mediante cebos y trampas homologadas, con seguimiento posterior para confirmar que la plaga ha desaparecido por completo.',
+  },
+  {
+    titulo: 'Desinfección',
+    texto:
+      'Aplicamos protocolos de desinfección frente a bacterias, virus y hongos en zonas comunes, locales y viviendas, especialmente recomendado tras la detección de una plaga.',
+  },
+  {
+    titulo: 'Tratamiento contra termitas',
+    texto:
+      'Detectamos y tratamos las termitas antes de que comprometan la estructura de madera del inmueble, un problema frecuente en edificios antiguos del centro de Sevilla.',
+  },
+  {
+    titulo: 'Mantenimiento anual de control de plagas',
+    texto:
+      'Con un contrato de mantenimiento anual realizamos revisiones periódicas para anticiparnos a la aparición de plagas, muy recomendable en comunidades de vecinos y locales de hostelería.',
+  },
+];
+---
+
+<BaseLayout
+  title="Control de Plagas en Sevilla | Empresa autorizada | MG Mantenimientos"
+  description="Control de plagas en Sevilla: desinsectación, desratización, desinfección y tratamiento antitermitas. Empresa autorizada por la Junta de Andalucía. 24h."
+>
+  <Hero
+    title="Control de Plagas en Sevilla"
+    subtitle="Empresa autorizada por la Junta de Andalucía para tratamientos de control de plagas. Más de 25 años protegiendo viviendas y negocios en Sevilla capital."
+    secondaryCta={{ label: 'Pedir presupuesto', href: '/contacto/' }}
+    phone="plagas"
+  />
+
+  <section class="mx-auto max-w-4xl px-4 py-16 sm:px-6 lg:px-8">
+    <div class="flex items-start gap-3 rounded-xl bg-white p-5 shadow-sm">
+      <Icon name="shield" class="mt-0.5 h-6 w-6 shrink-0 text-accent" />
+      <p class="text-sm font-medium text-ink/80">
+        Somos empresa autorizada por la Junta de Andalucía para realizar
+        tratamientos de control de plagas, garantía de que los productos y
+        protocolos que usamos cumplen la normativa sanitaria vigente.
+      </p>
+    </div>
+
+    <div class="mt-10 space-y-10">
+      {
+        detalles.map((d) => (
+          <div class="flex gap-4">
+            <Icon name="bug" class="mt-1 h-6 w-6 shrink-0 text-accent" />
+            <div>
+              <h2 class="font-display text-xl font-bold text-primary">{d.titulo}</h2>
+              <p class="mt-2 text-ink/75">{d.texto}</p>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+
+    <div class="mt-14 rounded-2xl bg-primary p-8 text-center text-white sm:p-10">
+      <h2 class="font-display text-2xl font-bold sm:text-3xl">
+        ¿Necesitas un tratamiento urgente?
+      </h2>
+      <p class="mt-2 text-white/70">
+        Atendemos avisos de plagas en Sevilla capital todos los días del año.
+      </p>
+      <div class="mt-6 flex justify-center">
+        <UrgentCTA phone="plagas" />
+      </div>
+    </div>
+  </section>
+</BaseLayout>

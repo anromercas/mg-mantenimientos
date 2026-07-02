@@ -1,0 +1,78 @@
+---
+import { site } from '../data/site';
+
+const siteUrl = Astro.site?.toString().replace(/\/$/, '') ?? '';
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': ['HomeAndConstructionBusiness', 'LocalBusiness'],
+  '@id': `${siteUrl}/#negocio`,
+  name: site.nombre,
+  alternateName: site.nombreCorto,
+  url: siteUrl,
+  telephone: `+34${site.telefonos.desatascosTel}`,
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: site.direccion.calle,
+    addressLocality: site.direccion.ciudad,
+    postalCode: site.direccion.cp,
+    addressRegion: site.direccion.provincia,
+    addressCountry: site.direccion.pais,
+  },
+  geo: {
+    '@type': 'GeoCoordinates',
+    latitude: site.coordenadas.lat,
+    longitude: site.coordenadas.lng,
+  },
+  hasMap: site.googleMapsUrl,
+  areaServed: site.zonaServicio,
+  openingHoursSpecification: {
+    '@type': 'OpeningHoursSpecification',
+    dayOfWeek: [
+      'Monday',
+      'Tuesday',
+      'Wednesday',
+      'Thursday',
+      'Friday',
+      'Saturday',
+      'Sunday',
+    ],
+    opens: '00:00',
+    closes: '23:59',
+  },
+  aggregateRating: {
+    '@type': 'AggregateRating',
+    ratingValue: site.valoracionGoogle.rating,
+    reviewCount: site.valoracionGoogle.numReviews,
+  },
+  sameAs: [site.redesSociales.facebook, site.redesSociales.twitter],
+  hasOfferCatalog: {
+    '@type': 'OfferCatalog',
+    name: 'Servicios MG Mantenimientos',
+    itemListElement: [
+      {
+        '@type': 'Offer',
+        itemOffered: {
+          '@type': 'Service',
+          serviceType: 'Desatascos',
+          name: 'Desatascos y saneamiento en Sevilla',
+          areaServed: site.zonaServicio,
+          telephone: `+34${site.telefonos.desatascosTel}`,
+        },
+      },
+      {
+        '@type': 'Offer',
+        itemOffered: {
+          '@type': 'Service',
+          serviceType: 'Control de plagas',
+          name: 'Control de plagas en Sevilla',
+          areaServed: site.zonaServicio,
+          telephone: `+34${site.telefonos.plagasTel}`,
+        },
+      },
+    ],
+  },
+};
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(schema)} />

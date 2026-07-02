@@ -1,0 +1,46 @@
+---
+import { getCollection, render } from 'astro:content';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import UrgentCTA from '../../../components/UrgentCTA.astro';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog', ({ data }) => !data.draft);
+  return posts.map((post) => ({
+    params: { id: post.id },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+
+const formatter = new Intl.DateTimeFormat('es-ES', {
+  day: 'numeric',
+  month: 'long',
+  year: 'numeric',
+});
+---
+
+<BaseLayout
+  title={`${post.data.title} | Blog MG Mantenimientos`}
+  description={post.data.description}
+>
+  <article class="mx-auto max-w-3xl px-4 py-16 sm:px-6 lg:px-8">
+    <p class="text-xs font-semibold uppercase tracking-wide text-accent">
+      {formatter.format(post.data.pubDate)}
+    </p>
+    <h1 class="mt-2 font-display text-3xl font-bold text-primary sm:text-4xl">
+      {post.data.title}
+    </h1>
+
+    <div
+      class="prose-content mt-8 space-y-4 leading-relaxed text-ink/85 [&_a]:text-accent [&_a]:underline [&_h2]:mt-8 [&_h2]:font-display [&_h2]:text-xl [&_h2]:font-bold [&_h2]:text-primary [&_li]:ml-2 [&_ul]:list-disc [&_ul]:space-y-1 [&_ul]:pl-6"
+    >
+      <Content />
+    </div>
+
+    <div class="mt-14 flex justify-center">
+      <UrgentCTA />
+    </div>
+  </article>
+</BaseLayout>

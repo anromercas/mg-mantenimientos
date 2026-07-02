@@ -1,0 +1,54 @@
+---
+import LegalLayout from '../../layouts/LegalLayout.astro';
+import { site } from '../../data/site';
+---
+
+<LegalLayout
+  title="Aviso Legal"
+  description="Aviso legal de MG Mantenimientos Desatascos y Control de Plagas, S.L."
+>
+  <p>
+    En cumplimiento del deber de información recogido en el artículo 10 de la
+    Ley 34/2002, de 11 de julio, de Servicios de la Sociedad de la Información
+    y del Comercio Electrónico (LSSI-CE), se facilitan los siguientes datos:
+  </p>
+
+  <h2>Datos identificativos</h2>
+  <ul>
+    <li><strong>Razón social:</strong> {site.nombre}</li>
+    <li><strong>NIF/CIF:</strong> {site.cifPendiente}</li>
+    <li><strong>Domicilio social:</strong> {site.direccion.completa}</li>
+    <li>
+      <strong>Teléfonos:</strong> {site.telefonos.desatascos} (Desatascos) /
+      {site.telefonos.plagas} (Control de plagas)
+    </li>
+  </ul>
+
+  <h2>Objeto</h2>
+  <p>
+    El presente aviso legal regula el uso del sitio web titularidad de {site.nombre},
+    cuya finalidad es informar sobre los servicios de desatascos, saneamiento
+    y control de plagas prestados en Sevilla capital.
+  </p>
+
+  <h2>Condiciones de uso</h2>
+  <p>
+    El acceso a este sitio web es gratuito y no requiere previa suscripción o
+    registro. El usuario se compromete a hacer un uso adecuado de los
+    contenidos y servicios ofrecidos, así como a no emplearlos para
+    actividades ilícitas o contrarias a la buena fe.
+  </p>
+
+  <h2>Propiedad intelectual</h2>
+  <p>
+    Los contenidos de este sitio web (textos, imágenes, marcas, logotipos)
+    son propiedad de {site.nombre} o de terceros que han autorizado su uso, y
+    están protegidos por la normativa de propiedad intelectual e industrial.
+  </p>
+
+  <p class="text-sm text-ink/50">
+    Última actualización: julio de 2026. Pendiente de completar con los datos
+    mercantiles exactos (CIF/NIF, inscripción registral) que debe facilitar el
+    cliente antes de publicar la web.
+  </p>
+</LegalLayout>

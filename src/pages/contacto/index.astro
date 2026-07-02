@@ -1,0 +1,76 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ContactForm from '../../components/ContactForm.astro';
+import MapEmbed from '../../components/MapEmbed.astro';
+import Icon from '../../components/icons/Icon.astro';
+import { site } from '../../data/site';
+---
+
+<BaseLayout
+  title="Contacto | MG Mantenimientos Sevilla"
+  description="Contacta con MG Mantenimientos en Sevilla. Desatascos 687 339 707, control de plagas 619 640 558. Abiertos 24 horas, los 365 días del año."
+>
+  <section class="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8">
+    <h1 class="font-display text-4xl font-bold text-primary sm:text-5xl">
+      Contacto
+    </h1>
+    <p class="mt-3 max-w-2xl text-lg text-ink/70">
+      Escríbenos o llámanos, estamos disponibles las 24 horas del día.
+    </p>
+
+    <div class="mt-12 grid gap-12 lg:grid-cols-2">
+      <div>
+        <ul class="space-y-5">
+          <li class="flex items-start gap-3">
+            <Icon name="map-pin" class="mt-0.5 h-6 w-6 shrink-0 text-accent" />
+            <div>
+              <p class="font-display font-bold text-primary">Dirección</p>
+              <p class="text-ink/75">{site.direccion.completa}</p>
+            </div>
+          </li>
+          <li class="flex items-start gap-3">
+            <Icon name="phone" class="mt-0.5 h-6 w-6 shrink-0 text-accent" />
+            <div>
+              <p class="font-display font-bold text-primary">Desatascos</p>
+              <a href={`tel:${site.telefonos.desatascosTel}`} class="text-ink/75 hover:text-accent">
+                {site.telefonos.desatascos}
+              </a>
+            </div>
+          </li>
+          <li class="flex items-start gap-3">
+            <Icon name="phone" class="mt-0.5 h-6 w-6 shrink-0 text-accent" />
+            <div>
+              <p class="font-display font-bold text-primary">Control de plagas</p>
+              <a href={`tel:${site.telefonos.plagasTel}`} class="text-ink/75 hover:text-accent">
+                {site.telefonos.plagas}
+              </a>
+            </div>
+          </li>
+          <li class="flex items-start gap-3">
+            <Icon name="clock" class="mt-0.5 h-6 w-6 shrink-0 text-accent" />
+            <div>
+              <p class="font-display font-bold text-primary">Horario</p>
+              <p class="text-ink/75">{site.horario}</p>
+            </div>
+          </li>
+        </ul>
+
+        <div class="mt-8">
+          <MapEmbed />
+        </div>
+      </div>
+
+      <div class="rounded-2xl bg-white p-6 shadow-sm sm:p-8">
+        <h2 class="font-display text-2xl font-bold text-primary">
+          Pide tu presupuesto
+        </h2>
+        <p class="mt-2 text-sm text-ink/60">
+          Te responderemos lo antes posible. Para urgencias, llámanos directamente.
+        </p>
+        <div class="mt-6">
+          <ContactForm />
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

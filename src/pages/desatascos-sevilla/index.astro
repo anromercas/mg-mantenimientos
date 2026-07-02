@@ -1,0 +1,83 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Hero from '../../components/Hero.astro';
+import UrgentCTA from '../../components/UrgentCTA.astro';
+import Icon from '../../components/icons/Icon.astro';
+
+const detalles = [
+  {
+    titulo: 'Desatascos urgentes 24h',
+    texto:
+      'Atendemos avisos las 24 horas, los 365 días del año. En la mayoría de los casos llegamos en menos de una hora y resolvemos el atasco en la misma visita, sin citas previas ni esperas.',
+  },
+  {
+    titulo: 'Limpieza y desatasco de alcantarillado',
+    texto:
+      'Limpiamos y desatascamos tramos de alcantarillado comunitario o particular con equipos de presión de agua, eliminando grasas, raíces y sedimentos acumulados.',
+  },
+  {
+    titulo: 'Inspección con cámara de TV 360º',
+    texto:
+      'Introducimos una cámara de inspección por el interior de la tubería para localizar exactamente dónde está la avería, sin necesidad de levantar suelos ni hacer obra. Grabamos el informe en vídeo para que quede constancia del estado real de la instalación.',
+  },
+  {
+    titulo: 'Localización de arquetas ocultas',
+    texto:
+      'Con detectores especializados localizamos arquetas tapadas por reformas u obras antiguas, un problema muy habitual en viviendas de Sevilla capital con más de 20 años.',
+  },
+  {
+    titulo: 'Desatasco de tuberías de pequeño diámetro',
+    texto:
+      'Trabajamos también en bajantes, desagües de cocina y baño, y tuberías de pequeño diámetro donde los atascos son más frecuentes por acumulación de grasas y objetos.',
+  },
+  {
+    titulo: 'Achique de agua',
+    texto:
+      'Realizamos achique de agua en sótanos, garajes y locales inundados por roturas, lluvias intensas o fallos en el saneamiento, con equipos de bombeo de alto caudal.',
+  },
+  {
+    titulo: 'Mantenimiento anual de desatascos',
+    texto:
+      'Contratando un mantenimiento anual reducimos drásticamente el riesgo de atascos, con revisiones periódicas de la instalación antes de que el problema aparezca.',
+  },
+];
+---
+
+<BaseLayout
+  title="Desatascos en Sevilla 24h | Cámara 360º sin obra | MG Mantenimientos"
+  description="Desatascos urgentes en Sevilla las 24 horas. Inspección con cámara 360º sin necesidad de obra, localización de arquetas y mantenimiento anual. Llama ahora."
+>
+  <Hero
+    title="Desatascos en Sevilla, urgencias 24 horas"
+    subtitle="Inspeccionamos con cámara 360º para localizar la avería sin obra. Más de 25 años resolviendo atascos en Sevilla capital."
+    secondaryCta={{ label: 'Pedir presupuesto', href: '/contacto/' }}
+  />
+
+  <section class="mx-auto max-w-4xl px-4 py-16 sm:px-6 lg:px-8">
+    <div class="space-y-10">
+      {
+        detalles.map((d) => (
+          <div class="flex gap-4">
+            <Icon name="pipe" class="mt-1 h-6 w-6 shrink-0 text-accent" />
+            <div>
+              <h2 class="font-display text-xl font-bold text-primary">{d.titulo}</h2>
+              <p class="mt-2 text-ink/75">{d.texto}</p>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+
+    <div class="mt-14 rounded-2xl bg-primary p-8 text-center text-white sm:p-10">
+      <h2 class="font-display text-2xl font-bold sm:text-3xl">
+        ¿Tienes un atasco ahora mismo?
+      </h2>
+      <p class="mt-2 text-white/70">
+        Te atendemos en cualquier punto de Sevilla capital, las 24 horas del día.
+      </p>
+      <div class="mt-6 flex justify-center">
+        <UrgentCTA />
+      </div>
+    </div>
+  </section>
+</BaseLayout>

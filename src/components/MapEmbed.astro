@@ -1,0 +1,18 @@
+---
+import { site } from '../data/site';
+
+const { lat, lng } = site.coordenadas;
+const mapSrc = `https://www.google.com/maps?q=${lat},${lng}&z=16&output=embed`;
+---
+
+<div class="overflow-hidden rounded-2xl border border-black/5 shadow-sm">
+  <iframe
+    src={mapSrc}
+    width="100%"
+    height="420"
+    style="border:0"
+    loading="lazy"
+    referrerpolicy="no-referrer-when-downgrade"
+    title={`Ubicación de ${site.nombreCorto} en ${site.direccion.completa}`}
+  ></iframe>
+</div>
