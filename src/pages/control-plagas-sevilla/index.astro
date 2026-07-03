@@ -7,6 +7,7 @@ import WhatsAppCTA from '../../components/WhatsAppCTA.astro';
 import Icon from '../../components/icons/Icon.astro';
 import fotoTecnicoPlagas from '../../assets/fotos/tecnico-control-plagas-tratamiento-sevilla.jpg';
 import fotoTrampa from '../../assets/fotos/trampa-cucarachas-control-plagas-sevilla.jpg';
+import fotoNebulizador from '../../assets/fotos/desinfeccion-nebulizador-sevilla.jpg';
 
 const detalles = [
   {
@@ -23,6 +24,9 @@ const detalles = [
     titulo: 'Desinfección',
     texto:
       'Aplicamos protocolos de desinfección frente a bacterias, virus y hongos en zonas comunes, locales y viviendas, especialmente recomendado tras la detección de una plaga.',
+    foto: fotoNebulizador,
+    fotoAlt:
+      'Nebulizador ULV aplicando un tratamiento de desinfección en la cocina de un local de hostelería en Sevilla',
   },
   {
     titulo: 'Tratamiento contra termitas',
@@ -84,6 +88,16 @@ const detalles = [
             <div>
               <h2 class="font-display text-xl font-bold text-primary">{d.titulo}</h2>
               <p class="mt-2 text-ink/75">{d.texto}</p>
+              {d.foto && (
+                <Image
+                  src={d.foto}
+                  alt={d.fotoAlt}
+                  class="mt-4 w-full max-w-md rounded-2xl shadow-sm"
+                  widths={[480, 800]}
+                  sizes="(max-width: 640px) 100vw, 448px"
+                  loading="lazy"
+                />
+              )}
             </div>
           </div>
         ))

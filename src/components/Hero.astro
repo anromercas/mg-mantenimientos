@@ -1,4 +1,6 @@
 ---
+import { Image } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
 import Icon from './icons/Icon.astro';
 import UrgentCTA from './UrgentCTA.astro';
 import WhatsAppCTA from './WhatsAppCTA.astro';
@@ -9,6 +11,8 @@ interface Props {
   subtitle: string;
   secondaryCta?: { label: string; href: string };
   phone?: 'desatascos' | 'plagas';
+  image?: ImageMetadata;
+  imageAlt?: string;
 }
 
 const {
@@ -16,6 +20,8 @@ const {
   subtitle,
   secondaryCta = { label: 'Pedir presupuesto', href: '/contacto/' },
   phone = 'desatascos',
+  image,
+  imageAlt = '',
 } = Astro.props;
 ---
 
@@ -24,27 +30,50 @@ const {
     class="pointer-events-none absolute -right-24 -top-24 h-96 w-96 rounded-full bg-white/10 blur-3xl"
   >
   </div>
-  <div class="relative mx-auto max-w-7xl px-4 py-20 sm:px-6 sm:py-28 lg:px-8">
-    <div class="flex items-center gap-2 text-sm font-semibold text-white">
-      <Icon name="star" class="h-5 w-5 text-amber-300" />
-      {site.valoracionGoogle.rating}★ en Google · {site.valoracionGoogle.numReviews} reseñas
+  <div
+    class:list={[
+      'relative mx-auto max-w-7xl px-4 py-20 sm:px-6 sm:py-28 lg:px-8',
+      image && 'grid items-center gap-12 lg:grid-cols-[1fr_minmax(0,30rem)]',
+    ]}
+  >
+    <div>
+      <div class="flex items-center gap-2 text-sm font-semibold text-white">
+        <Icon name="star" class="h-5 w-5 text-amber-300" />
+        {site.valoracionGoogle.rating}★ en Google · {site.valoracionGoogle.numReviews} reseñas
+      </div>
+      <h1 class="mt-4 max-w-3xl font-display text-4xl font-bold leading-tight sm:text-5xl lg:text-6xl">
+        {title}
+      </h1>
+      <p class="mt-6 max-w-2xl text-lg text-white/85">
+        {subtitle}
+      </p>
+      <div class="mt-8 flex flex-wrap items-center gap-4">
+        <UrgentCTA phone={phone} />
+        <WhatsAppCTA phone={phone} />
+        <a
+          href={secondaryCta.href}
+          class="inline-flex items-center gap-2 rounded-full border border-white/40 px-6 py-3 font-display text-sm font-bold text-white transition hover:bg-white/10"
+        >
+          {secondaryCta.label}
+          <Icon name="arrow-right" class="h-4 w-4" />
+        </a>
+      </div>
     </div>
-    <h1 class="mt-4 max-w-3xl font-display text-4xl font-bold leading-tight sm:text-5xl lg:text-6xl">
-      {title}
-    </h1>
-    <p class="mt-6 max-w-2xl text-lg text-white/85">
-      {subtitle}
-    </p>
-    <div class="mt-8 flex flex-wrap items-center gap-4">
-      <UrgentCTA phone={phone} />
-      <WhatsAppCTA phone={phone} />
-      <a
-        href={secondaryCta.href}
-        class="inline-flex items-center gap-2 rounded-full border border-white/40 px-6 py-3 font-display text-sm font-bold text-white transition hover:bg-white/10"
-      >
-        {secondaryCta.label}
-        <Icon name="arrow-right" class="h-4 w-4" />
-      </a>
-    </div>
+    {
+      image && (
+        <div class="relative">
+          <div class="pointer-events-none absolute -inset-3 rounded-3xl bg-white/10" />
+          <Image
+            src={image}
+            alt={imageAlt}
+            class="relative aspect-[4/3] w-full rounded-2xl object-cover shadow-2xl ring-1 ring-white/25"
+            widths={[480, 800, 1200]}
+            sizes="(max-width: 1024px) 100vw, 480px"
+            loading="eager"
+            fetchpriority="high"
+          />
+        </div>
+      )
+    }
   </div>
 </section>

@@ -7,6 +7,9 @@ import UrgentCTA from '../components/UrgentCTA.astro';
 import WhatsAppCTA from '../components/WhatsAppCTA.astro';
 import Icon from '../components/icons/Icon.astro';
 import { site } from '../data/site';
+import fotoFurgoneta from '../assets/fotos/furgoneta-desatascos-control-plagas-sevilla.jpg';
+import fotoTecnicoDesatascos from '../assets/fotos/tecnico-desatasco-arqueta-sevilla.jpg';
+import fotoTecnicoPlagas from '../assets/fotos/tecnico-control-plagas-tratamiento-sevilla.jpg';
 ---
 
 <BaseLayout
@@ -16,6 +19,8 @@ import { site } from '../data/site';
   <Hero
     title="Desatascos y Control de Plagas en Sevilla, 24 horas los 365 días del año"
     subtitle="Más de 25 años resolviendo urgencias en Sevilla capital. Empresa autorizada por la Junta de Andalucía. Valorados con 4.6★ en Google por más de 60 clientes."
+    image={fotoFurgoneta}
+    imageAlt="Furgoneta rotulada de MG Mantenimientos con los teléfonos de desatascos y control de plagas, servicio 24 horas en Sevilla"
   />
 
   <section class="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
@@ -48,6 +53,8 @@ import { site } from '../data/site';
           description="Desatascos urgentes con inspección por cámara 360º para localizar la avería sin necesidad de obra."
           items={site.servicios.desatascos}
           href="/desatascos-sevilla/"
+          image={fotoTecnicoDesatascos}
+          imageAlt="Técnico de MG Mantenimientos realizando un desatasco en una arqueta en Sevilla"
         />
         <ServiceCard
           icon="shield"
@@ -55,6 +62,8 @@ import { site } from '../data/site';
           description="Desinsectación, desratización y tratamientos antitermitas con empresa autorizada por la Junta de Andalucía."
           items={site.servicios.plagas}
           href="/control-plagas-sevilla/"
+          image={fotoTecnicoPlagas}
+          imageAlt="Técnico de MG Mantenimientos aplicando un tratamiento de control de plagas en un local de Sevilla"
         />
       </div>
 

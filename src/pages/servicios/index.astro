@@ -3,6 +3,8 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import ServiceCard from '../../components/ServiceCard.astro';
 import Icon from '../../components/icons/Icon.astro';
 import { site } from '../../data/site';
+import fotoTecnicoDesatascos from '../../assets/fotos/tecnico-desatasco-arqueta-sevilla.jpg';
+import fotoTecnicoPlagas from '../../assets/fotos/tecnico-control-plagas-tratamiento-sevilla.jpg';
 ---
 
 <BaseLayout
@@ -25,6 +27,8 @@ import { site } from '../../data/site';
         description="Desatascos urgentes con inspección por cámara 360º para localizar la avería sin necesidad de obra."
         items={site.servicios.desatascos}
         href="/desatascos-sevilla/"
+        image={fotoTecnicoDesatascos}
+        imageAlt="Técnico de MG Mantenimientos realizando un desatasco en una arqueta en Sevilla"
       />
       <ServiceCard
         icon="shield"
@@ -32,6 +36,8 @@ import { site } from '../../data/site';
         description="Desinsectación, desratización y tratamientos antitermitas con empresa autorizada por la Junta de Andalucía."
         items={site.servicios.plagas}
         href="/control-plagas-sevilla/"
+        image={fotoTecnicoPlagas}
+        imageAlt="Técnico de MG Mantenimientos aplicando un tratamiento de control de plagas en un local de Sevilla"
       />
     </div>
 
